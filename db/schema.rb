@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_28_133807) do
+ActiveRecord::Schema.define(version: 2019_07_28_134857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 2019_07_28_133807) do
     t.string "simple_map_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["country"], name: "index_cities_on_country"
+    t.index ["iso2"], name: "index_cities_on_iso2"
+    t.index ["iso3"], name: "index_cities_on_iso3"
+    t.index ["name"], name: "index_cities_on_name"
   end
 
   create_table "travelings", force: :cascade do |t|
@@ -83,6 +87,8 @@ ActiveRecord::Schema.define(version: 2019_07_28_133807) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url_suffix"
+    t.index ["url_suffix"], name: "index_worlds_on_url_suffix"
     t.index ["user_id"], name: "index_worlds_on_user_id"
   end
 

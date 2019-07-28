@@ -12,7 +12,17 @@ Rails.application.routes.draw do
 
   end
 
+  scope :app do
+    resources :worlds, param: :url_suffix
+  end
+
+  scope '/:url_suffix', constraints: { url_suffix: World::ROUTER_REGEX } do
+    get '/' => 'worlds#show', as: :world_page
+  end
+
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#show", :code => code
   end
+
+  root 'worlds#index'
 end
