@@ -7,11 +7,17 @@ function getQueryString(params) {
 }
 
 const get = (path, params) => {
-    const qs = '?' + getQueryString(params || {});
+    let url;
+    if (typeof(params) !== 'undefined' && params !== {}) {
+        const qs = '?' + getQueryString(params || {});
+        url = path + qs;
+    } else {
+        url = path;
+    }
 
     return axios({
         method: 'get',
-        url: path + qs
+        url: url
     })
 };
 
