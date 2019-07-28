@@ -49,8 +49,8 @@ services:
     links:
       - rails
     environment:
-      - VIRTUAL_HOST=blue_dot.kaiper.xyz
-      - LETSENCRYPT_HOST=blue_dot.kaiper.xyz
+      - VIRTUAL_HOST=blue-dot.kaiper.xyz
+      - LETSENCRYPT_HOST=blue-dot.kaiper.xyz
       - LETSENCRYPT_EMAIL=astrocket.dev@gmail.com
     ports:
       - 80
