@@ -1,4 +1,17 @@
 FactoryBot.define do
+  factory :traveling do
+    world { nil }
+    city { nil }
+  end
+
+  factory :world do
+    user { nil }
+  end
+
+  factory :user do
+    
+  end
+
   factory :city do
     name { "MyString" }
     name_ascii { "MyString" }
